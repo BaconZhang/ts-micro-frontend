@@ -3,4 +3,4 @@ function Energy(ctx) {
   return ctx.name;
 }
 
-module.exports = Energy;
+export default Energy

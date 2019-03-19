@@ -3,4 +3,4 @@ function Login(ctx) {
   return ctx.name;
 }
 
-module.exports = Login;
+export default Login

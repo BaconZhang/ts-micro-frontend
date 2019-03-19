@@ -3,4 +3,4 @@ function History(ctx) {
   return ctx.name;
 }
 
-module.exports = History;
+export default History
