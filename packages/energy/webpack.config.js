@@ -8,7 +8,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
     libraryExport: 'default',
-    library: 'Assets',
+    library: 'Energy',
     libraryTarget: 'umd'
   },
   module: {

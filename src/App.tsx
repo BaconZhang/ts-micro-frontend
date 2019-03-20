@@ -12,7 +12,6 @@ const createRoutes = async (config: CONFIG): Promise<Array<ROUTE>> => {
     name: item.name,
     render: (props: RouteComponentProps) => {
       let Compoennt = entries[index].default;
-      console.log(props)
       return <Compoennt {...props} />
     }
   }));

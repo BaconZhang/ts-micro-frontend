@@ -6,9 +6,6 @@ const Detail = () => <div>这是 assets 模块 Detail 页</div>
 
 class Assets extends React.Component {
   render() {
-    // const { Link, Route } = this.props;
-    console.log(this.props.Route);
-    console.log(Route);
     return (
       <div>
         Assets Assets
