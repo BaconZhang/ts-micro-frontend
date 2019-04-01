@@ -1,6 +1,10 @@
 {
   "packages": [
     {
+      "path": "/energy",
+      "name": "能效"
+    },
+    {
       "path": "/history",
       "name": "历史"
     },

@@ -1,9 +1,56 @@
-import React, { Component, Suspense, lazy, ComponentType } from 'react';
-import { Route, Router, Link, Switch, RouteComponentProps } from 'react-router-dom';
-import { CONFIG, PACKAGE, ROUTE } from './Config';
+import React, { Component, Suspense, lazy } from 'react';
+import { Route, Router, Link, Switch } from 'react-router-dom';
+import { PACKAGE, ROUTE } from './Config';
 import config from './config.json';
 import history from './history';
+import { inject, Injected, Inject, Inejctor } from './ioc';
 import './App.css';
+
+class A {
+  private name: String;
+  constructor() {
+    this.name = "A";
+  }
+
+  sayName() {
+    console.log(this.name);
+  }
+}
+
+class B {
+  private id: String;
+  constructor() {
+    this.id = "123";
+  }
+
+  sayId() {
+    console.log(this.id);
+  }
+}
+
+@inject([A, B])
+class Test {
+  private a: A;
+  private b: B;
+  constructor(a: A, b: B) {
+    this.a = a;
+    this.b = b;
+  }
+
+  sayName() {
+    this.a.sayName();
+  }
+
+  sayId() {
+    this.b.sayId();
+  }
+}
+
+
+const TestInjector = new Inejctor(Test as Injected<Inject>);
+const instance = TestInjector.get();
+instance.sayId();
+instance.sayName()
 
 interface PropsType {
 
