@@ -28,10 +28,6 @@ class B {
   }
 }
 
-@inject([
-  params({ name: "A" })(A),
-  params({ id: "1235678" })(B)
-])
 class Test {
   private a: A;
   private b: B;
@@ -49,11 +45,17 @@ class Test {
   }
 }
 
+@inject([
+  params({ name: "A" })(A),
+  params({ id: "1235678" })(B)
+])
+class Test1 extends Test { }
 
-const TestInjector = new Inejctor(Test as Injected<Inject>);
+const TestInjector = new Inejctor(Test1 as Injected<Inject>);
 const instance = TestInjector.get();
 instance.sayId();
-instance.sayName()
+instance.sayName();
+
 
 interface PropsType {
 
