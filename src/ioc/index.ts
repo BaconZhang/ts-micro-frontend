@@ -18,6 +18,17 @@ function inject(annotations: Inject[]) {
   }
 }
 
+function params(params: { [ket: string]: any }) {
+  return function <T extends { new(...args: any[]): any }>(constructor: T) {
+    return class extends constructor {
+      constructor(...args: any[]) {
+        super(args);
+        Object.assign(this, params);
+      }
+    }
+  }
+}
+
 class Inejctor<T extends Injected<Inject>> {
   private target: T;
   private cache: Map<T, T>;
@@ -55,5 +66,6 @@ class Inejctor<T extends Injected<Inject>> {
 
 export {
   inject,
-  Inejctor
+  Inejctor,
+  params
 }

@@ -3,13 +3,13 @@ import { Route, Router, Link, Switch } from 'react-router-dom';
 import { PACKAGE, ROUTE } from './Config';
 import config from './config.json';
 import history from './history';
-import { inject, Injected, Inject, Inejctor } from './ioc';
+import { inject, Injected, Inject, Inejctor, params } from './ioc';
 import './App.css';
 
 class A {
   private name: String;
-  constructor() {
-    this.name = "A";
+  constructor(name: String) {
+    this.name = name;
   }
 
   sayName() {
@@ -19,8 +19,8 @@ class A {
 
 class B {
   private id: String;
-  constructor() {
-    this.id = "123";
+  constructor(id: String) {
+    this.id = id;
   }
 
   sayId() {
@@ -28,7 +28,10 @@ class B {
   }
 }
 
-@inject([A, B])
+@inject([
+  params({ name: "A" })(A),
+  params({ id: "1235678" })(B)
+])
 class Test {
   private a: A;
   private b: B;
