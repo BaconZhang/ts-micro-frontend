@@ -4,6 +4,7 @@ import { PACKAGE, ROUTE } from './Config';
 import config from './config.json';
 import history from './history';
 import './App.css';
+require('./ioc/test');
 
 interface PropsType {
 

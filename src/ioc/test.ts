@@ -2,7 +2,7 @@ import { inject, Injected, Inject, Inejctor, params } from './index';
 
 @params({ name: "A" })
 class A {
-  private name: String;
+  name: String;
   constructor(name: String) {
     this.name = name;
   }
