@@ -36,6 +36,7 @@ class C {
   }
 }
 
+@inject([A, C])
 class Test {
   private a: A;
   private b: B;
@@ -53,13 +54,8 @@ class Test {
   }
 }
 
-@inject([
-  A,
-  C
-])
-class Test1 extends Test { }
 
-const TestInjector = new Inejctor(Test1 as Injected<Inject>);
+const TestInjector = new Inejctor(Test as Injected<Inject>);
 const instance = TestInjector.get();
 
 instance.sayId();
