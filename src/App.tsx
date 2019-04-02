@@ -3,59 +3,7 @@ import { Route, Router, Link, Switch } from 'react-router-dom';
 import { PACKAGE, ROUTE } from './Config';
 import config from './config.json';
 import history from './history';
-import { inject, Injected, Inject, Inejctor, params } from './ioc';
 import './App.css';
-
-class A {
-  private name: String;
-  constructor(name: String) {
-    this.name = name;
-  }
-
-  sayName() {
-    console.log(this.name);
-  }
-}
-
-class B {
-  private id: String;
-  constructor(id: String) {
-    this.id = id;
-  }
-
-  sayId() {
-    console.log(this.id);
-  }
-}
-
-class Test {
-  private a: A;
-  private b: B;
-  constructor(a: A, b: B) {
-    this.a = a;
-    this.b = b;
-  }
-
-  sayName() {
-    this.a.sayName();
-  }
-
-  sayId() {
-    this.b.sayId();
-  }
-}
-
-@inject([
-  params({ name: "A" })(A),
-  params({ id: "1235678" })(B)
-])
-class Test1 extends Test { }
-
-const TestInjector = new Inejctor(Test1 as Injected<Inject>);
-const instance = TestInjector.get();
-instance.sayId();
-instance.sayName();
-
 
 interface PropsType {
 
