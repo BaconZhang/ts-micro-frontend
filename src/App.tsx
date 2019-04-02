@@ -9,7 +9,7 @@ interface PropsType {
 
 }
 interface StateType {
-  routes: Array<ROUTE>,
+
 }
 
 class App extends Component<PropsType, StateType> {
@@ -26,7 +26,11 @@ class App extends Component<PropsType, StateType> {
             </div>
             <Switch>
               {
-                config.packages.map((i: PACKAGE) => <Route key={i.path} path={i.path} component={lazy(() => import(`../packages${i.path}/build/bundle.js`))} />)
+                config.packages.map((i: PACKAGE) => <Route
+                  key={i.path}
+                  path={i.path}
+                  component={lazy(() => import(`../packages${i.path}/build/bundle.js`))}
+                />)
               }
               <Route render={() => <div>404</div>} />
             </Switch>
